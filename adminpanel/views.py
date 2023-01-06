@@ -39,3 +39,11 @@ def adminhome(request):
         seb = User.objects.all()
         admission = Admissions.objects.all()
         trainers = Trainers.objects.all()
+        dict_obj = {
+            'seb' : seb,
+            'admission': admission,
+            'trainers': trainers       
+        }
+        return render(request,'adminhome.html',dict_obj)
+    else:
+        return redirect('adminlogin')
