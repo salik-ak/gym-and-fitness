@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title%}
+trainers
+{% endblock %}
+
+{% block content%}
+<h1 class="text-center">our trainers</h1>
+<hr>
+<div class="container text-center">
+{% for t in traners%}
+<div class="card text-center mx-3 my-3" style="width: 18rem; display:inline-block" >
+    <img src="{{t.trainers_image.url}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Mr.{{t.trainers_name}}</h5>
+      <p class="card-text">{{t.trainers_spec}}.</p>
+      <h6>{{c.course_name}} Course</h6>
+   
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
+
