@@ -47,3 +47,28 @@ def adminhome(request):
         return render(request,'adminhome.html',dict_obj)
     else:
         return redirect('adminlogin')
+
+def delete_data(request, id):
+    if request.method =='POST':
+        pi = User.objects.get(pk=id)
+        pi.delete()
+        return redirect('adminhome')
+
+def update_data(request, id):
+    if request.method == 'POST':
+        pi = User.objects.get(pk=id)
+        ann = UpdateForm(request.POST,instence=pi)
+        if ann.is_valid():
+            ann.save()
+            return redirect('adminhome')
+    else:
+        pi = User.objects.get(pk=id)
+        ann = UpdateForm(instance=pi)
+
+    return render(request,'updatedata.html',{'form':ann, 'id':id})
+
+def adminlogout(request):
+    if 'username' in request.session:
+        request.session.flush()
+    auth.logout(request)
+    return redirect('adminlogin')
