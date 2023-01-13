@@ -29,10 +29,11 @@ def adminlogin(request):
     else:
         form = AdminLoginForm()
         dict_forms = {
-            'form':form
+            'form': form
         }
 
-        return render(request,'adminlogin.html',dict_forms)
+        return render(request, 'adminlogin.html', dict_forms)
+
 
 def adminhome(request):
     if 'username' in request.session:
@@ -40,24 +41,26 @@ def adminhome(request):
         admission = Admissions.objects.all()
         trainers = Trainers.objects.all()
         dict_obj = {
-            'seb' : seb,
+            'seb': seb,
             'admission': admission,
-            'trainers': trainers       
+            'trainers': trainers
         }
-        return render(request,'adminhome.html',dict_obj)
+        return render(request, 'adminhome.html', dict_obj)
     else:
         return redirect('adminlogin')
 
+
 def delete_data(request, id):
-    if request.method =='POST':
+    if request.method == 'POST':
         pi = User.objects.get(pk=id)
         pi.delete()
         return redirect('adminhome')
 
+
 def update_data(request, id):
     if request.method == 'POST':
         pi = User.objects.get(pk=id)
-        ann = UpdateForm(request.POST,instence=pi)
+        ann = UpdateForm(request.POST, instance=pi)
         if ann.is_valid():
             ann.save()
             return redirect('adminhome')
@@ -65,7 +68,8 @@ def update_data(request, id):
         pi = User.objects.get(pk=id)
         ann = UpdateForm(instance=pi)
 
-    return render(request,'updatedata.html',{'form':ann, 'id':id})
+    return render(request, 'updatedata.html', {'form': ann, 'id': id})
+
 
 def adminlogout(request):
     if 'username' in request.session:

@@ -9,7 +9,7 @@ def home(request):
     if 'username' in request.session:
         return redirect('index')
     else:
-        return render(request, 'home.html')
+        return render(request,'home.html')
 
 
 """def index(request):

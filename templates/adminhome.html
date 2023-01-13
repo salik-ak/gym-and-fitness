@@ -14,8 +14,9 @@
         <link rel="stylesheet" href="">
     </head>
     <body>
-        <h1 class="text-center mt-3">Users Information</h1>
-        <div class= " container text-center bg-primary mt-5">
+   
+        <h1 class="text-center mt-3">USERS INFORMATION</h1>
+        <div class= " container text-center bg-info mt-5">
             
             {% if seb %}
          <table class="table">
@@ -54,9 +55,10 @@
           <h4 class= "text-center">No records</h4>
           {% endif %}
         </div>
-        <div class= " container text-center bg-primary mt-5">
-            
-          {% if booking %}
+        <h1 class = 'text-center mt-3'>STUDENTS INFORMATION</h1>
+        <div class= " container text-center bg-success mt-5">
+        
+          {% if admission %}
        <table class="table">
           <thead>
             <tr>
@@ -96,9 +98,11 @@
         <h4 class= "text-center">No records</h4>
         {% endif %}
       </div>
+
+      <h1 class = 'text-center mt-3'>TRAINERS INFORMATION</h1>
       <div class= " container text-center bg-primary mt-5">
             
-        {% if docters %}
+        {% if trainers %}
      <table class="table">
         <thead>
           <tr>
@@ -137,7 +141,7 @@
       <h4 class= "text-center">No records</h4>
       {% endif %}
     </div>
-      
+    
         <div class = "text-center">
         <a class="btn btn-dark btn-md text-center" href="{% url 'adminlogout' %}">LogOut</a>
         </div>

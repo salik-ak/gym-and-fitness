@@ -30,12 +30,12 @@ def admission(request):
                 form.save()
                 return render(request, 'confirmation.html')
         form = AdmissionForm()
-        dict_form = {
+        dict_form = { 
             'form': form
         }
         return render(request, "admission.html", dict_form)
     else:
-        return redirect('home')
+        return redirect('home')      
 
 
 def trainers(request):
